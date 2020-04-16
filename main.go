@@ -31,9 +31,9 @@ func main() {
 		}
 	}
 
-	g := atreugo.New(config)
-
-	if err := g.ListenAndServe(); err != nil {
+	ctx := atreugo.New(config)
+	router(ctx)
+	if err := ctx.ListenAndServe(); err != nil {
 		panic(err)
 	}
 }
