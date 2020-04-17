@@ -17,7 +17,7 @@ type UserCredential struct {
 }
 
 // GenerateToken ...
-func (c Config) GenerateToken(username []byte, password []byte) (string, time.Time) {
+func (c *Config) GenerateToken(username []byte, password []byte) (string, time.Time) {
 	logger.Debugf("Create new token for user %s", username)
 
 	expireAt := time.Now().Add(120 * time.Minute)
