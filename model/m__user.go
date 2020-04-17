@@ -18,15 +18,11 @@ func (m *Model) Query() ([]database.User, error) {
 // Create user.
 func (m *Model) Create(user database.User) error {
 	if !db.Where("email = ?", user.Email).First(&user).RecordNotFound() {
-		return errors.New("ERROR_EMAIL")
-	} else {
-		user.Password = m.HashAndSalt(m.GetPwd(user.Password))
-		if err := db.Model(&m.User).Create(&user).Error; err != nil {
-			return err
-		} else {
-			return errors.New("SUKSES_EMAIL")
-		}
-
+		return errors.New("EMAIL_FOUND")
 	}
-	return nil
+	user.Password = m.HashAndSalt(m.GetPwd(user.Password))
+	if err := db.Model(&m.User).Create(&user).Error; err != nil {
+		return err
+	}
+	return errors.New("SUKSES_EMAIL")
 }
