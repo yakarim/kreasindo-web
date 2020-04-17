@@ -32,7 +32,7 @@ func main() {
 	}
 
 	ctx := atreugo.New(config)
-	router(ctx)
+	go routers(ctx)
 	if err := ctx.ListenAndServe(); err != nil {
 		panic(err)
 	}

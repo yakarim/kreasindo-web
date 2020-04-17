@@ -1,9 +1,15 @@
 package main
 
-import "github.com/savsgio/atreugo/v10"
+import (
+	"github.com/savsgio/atreugo/v10"
+	"github.com/yakarim/kreasindo-web/controller"
+)
 
-func router(ctx *atreugo.Atreugo) {
+var c controller.Controller
+
+func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/", Index)
+	ctx.GET("/user", c.UserTemplates)
 
 }
 
