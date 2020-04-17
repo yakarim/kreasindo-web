@@ -11,6 +11,7 @@ import (
 type User struct {
 	config.Config
 	database.User
+	database.Base
 }
 
 // Query user.
@@ -32,4 +33,27 @@ func (m *User) Create(user database.User) error {
 		return err
 	}
 	return errors.New("SUKSES_EMAIL")
+}
+
+// Update user.
+func (m *User) Update(user database.User) error {
+	if user.Password == "" {
+		if err := db.Model(&m.User).Create(&user).Error; err != nil {
+			return err
+		}
+	}
+	user.Password = m.HashAndSalt(m.GetPwd(user.Password))
+	if err := db.Model(&m.User).Create(&user).Error; err != nil {
+		return err
+	}
+	return errors.New("SUKSES_EMAIL")
+}
+
+// Delete ...
+func (m *User) Delete(id string) error {
+	if err := db.Delete(&database.User{}, database.User{Base: database.Base{ID: id}}).Error; err != nil {
+		return err
+	}
+	return errors.New("SUKSES_EMAIL")
+
 }
