@@ -11,7 +11,6 @@ import (
 type User struct {
 	config.Config
 	database.User
-	database.Base
 }
 
 // Query user.
