@@ -1,20 +1,15 @@
 package controller
 
 import (
-	"net/url"
-
 	"github.com/savsgio/atreugo/v10"
-	"github.com/valyala/fasttemplate"
+	"github.com/yakarim/kreasindo-web/config"
 )
 
 // UserTemplates ...
 func (c *Controller) UserTemplates(ctx *atreugo.RequestCtx) error {
-	template := "[host]"
-	t := fasttemplate.New(template, "[", "]")
-	s := t.ExecuteString(map[string]interface{}{
-		"host":  "google.com",
-		"query": url.QueryEscape("hello=world"),
-		"bar":   "foobar",
+	str := false
+	return c.HTML(ctx, 200, "pages/index", config.H{
+		"title": "User Pages",
+		"str":   str,
 	})
-	return ctx.HTTPResponseBytes([]byte(s), 200)
 }
