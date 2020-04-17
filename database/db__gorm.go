@@ -17,7 +17,7 @@ func init() {
 
 	var db *gorm.DB
 	p := os.Getenv("PORT")
-	if p == "8080" {
+	if p == "808" {
 		psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 			"localhost", 5432, "postgres", "1234", "kreasindo")
 

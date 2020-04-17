@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/savsgio/atreugo/v10"
+	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/controller"
 )
 
@@ -15,5 +16,7 @@ func routers(ctx *atreugo.Atreugo) {
 
 // Index ...
 func Index(ctx *atreugo.RequestCtx) error {
-	return ctx.JSONResponse("halo walid", 200)
+	return c.HTML(ctx, 200, "pages/index", config.H{
+		"title": "Halaman Depan",
+	})
 }

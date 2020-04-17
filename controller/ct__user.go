@@ -7,9 +7,11 @@ import (
 
 // UserTemplates ...
 func (c *Controller) UserTemplates(ctx *atreugo.RequestCtx) error {
+	data, _ := c.User.Query()
 	str := false
 	return c.HTML(ctx, 200, "pages/index", config.H{
 		"title": "User Pages",
 		"str":   str,
+		"data":  data,
 	})
 }

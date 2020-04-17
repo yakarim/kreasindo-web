@@ -3,11 +3,18 @@ package model
 import (
 	"errors"
 
+	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/database"
 )
 
+// User ...
+type User struct {
+	config.Config
+	database.User
+}
+
 // Query user.
-func (m *Model) Query() ([]database.User, error) {
+func (m *User) Query() ([]database.User, error) {
 	var user []database.User
 	if err := db.Order("created_at desc").Find(&user).Error; err != nil {
 		return user, err
@@ -16,7 +23,7 @@ func (m *Model) Query() ([]database.User, error) {
 }
 
 // Create user.
-func (m *Model) Create(user database.User) error {
+func (m *User) Create(user database.User) error {
 	if !db.Where("email = ?", user.Email).First(&user).RecordNotFound() {
 		return errors.New("EMAIL_FOUND")
 	}
