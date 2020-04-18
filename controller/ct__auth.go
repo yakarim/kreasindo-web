@@ -11,7 +11,7 @@ import (
 func (c *Controller) Login(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
 	deleteSession(ctx)
-	return c.HTML(ctx, 200, "pages/login", config.H{
+	return c.HTMLJet(ctx, 200, "login", config.H{
 		"username": u,
 		"sigIn":    signIn,
 	})

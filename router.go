@@ -10,6 +10,7 @@ var c controller.Controller
 
 func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/", Index)
+	ctx.GET("/news", home)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 
@@ -23,7 +24,16 @@ func routers(ctx *atreugo.Atreugo) {
 func Index(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
 
-	return c.HTML(ctx, 200, "pages/index", config.H{
+	return c.HTMLJet(ctx, 200, "home", config.H{
+		"title":    "Halaman Depan",
+		"username": string(u.Username),
+		"signIn":   signIn,
+	})
+}
+
+func home(ctx *atreugo.RequestCtx) error {
+	u, signIn, _ := c.Auth(ctx)
+	return c.HTMLJet(ctx, 200, "home", config.H{
 		"title":    "Halaman Depan",
 		"username": string(u.Username),
 		"signIn":   signIn,

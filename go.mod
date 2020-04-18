@@ -3,6 +3,8 @@ module github.com/yakarim/kreasindo-web
 go 1.13
 
 require (
+	github.com/CloudyKit/jet v2.1.2+incompatible // indirect
+	github.com/CloudyKit/jet/v3 v3.0.0
 	github.com/GeertJohan/go.rice v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fasthttp-contrib/render v0.0.0-20160511213512-8756b19d4c12
