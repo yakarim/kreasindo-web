@@ -11,7 +11,7 @@ func (c *Controller) UserTemplates(ctx *atreugo.RequestCtx) error {
 	data, _ := c.User.Query()
 	return c.HTML(ctx, 200, "admin/users/view", config.H{
 		"title":    "User Pages",
-		"username": u.Username,
+		"username": string(u.Username),
 		"signIn":   signIn,
 		"data":     data,
 	})

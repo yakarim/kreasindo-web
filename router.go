@@ -25,7 +25,7 @@ func Index(ctx *atreugo.RequestCtx) error {
 
 	return c.HTML(ctx, 200, "pages/index", config.H{
 		"title":    "Halaman Depan",
-		"username": u.Username,
+		"username": string(u.Username),
 		"signIn":   signIn,
 	})
 }
