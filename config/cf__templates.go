@@ -9,6 +9,7 @@ import (
 
 // HTML ...
 func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) error {
+
 	views.SetDevelopmentMode(true)
 	views.Delims("[%", "%]")
 	t, err := views.GetTemplate(page + ".jet.html")
