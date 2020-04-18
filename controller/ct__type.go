@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/yakarim/kreasindo-web/config"
+	"github.com/yakarim/kreasindo-web/database"
 	"github.com/yakarim/kreasindo-web/model"
 )
 
@@ -10,3 +11,5 @@ type Controller struct {
 	model.Model
 	config.Config
 }
+
+var db = database.DB

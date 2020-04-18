@@ -8,7 +8,7 @@ import (
 // Auth login
 func (c *Config) Auth(ctx *atreugo.RequestCtx) (*UserCredential, bool, error) {
 	var signIn bool
-	jwtCookie := ctx.Request.Header.Cookie("opo_jwt")
+	jwtCookie := ctx.Request.Header.Cookie("__jwt")
 	_, user, err := validateToken(string(jwtCookie))
 	if err != nil {
 		signIn = false
@@ -23,7 +23,7 @@ func (c *Config) AuthMiddleware(ctx *atreugo.RequestCtx) error {
 	if string(ctx.Path()) == "/login" {
 		return ctx.Next()
 	}
-	jwtCookie := ctx.Request.Header.Cookie("opo_jwt")
+	jwtCookie := ctx.Request.Header.Cookie("__jwt")
 
 	if len(jwtCookie) == 0 {
 		return ctx.RedirectResponse("/login", fasthttp.StatusForbidden)

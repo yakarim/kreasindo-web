@@ -10,13 +10,22 @@ var c controller.Controller
 
 func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/", Index)
-	ctx.GET("/user", c.UserTemplates)
+	ctx.GET("/login", c.Login)
+	ctx.POST("/login__jwt", c.LoginJwt)
+
+	ctxUser := ctx.NewGroupPath("/user__view")
+	ctxUser.UseBefore(c.AuthMiddleware)
+	ctxUser.GET("", c.UserTemplates)
 
 }
 
 // Index ...
 func Index(ctx *atreugo.RequestCtx) error {
+	u, signIn, _ := c.Auth(ctx)
+
 	return c.HTML(ctx, 200, "pages/index", config.H{
-		"title": "Halaman Depan",
+		"title":    "Halaman Depan",
+		"username": u.Username,
+		"signIn":   signIn,
 	})
 }

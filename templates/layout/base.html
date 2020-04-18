@@ -6,6 +6,12 @@
     <title>[%.title%]</title>
 </head>
 <body>
+    [% render  "layout/navbar"%]
     [%yield%]
+    
 </body>
 </html>
+
+[% define "header-home" %]
+<h1>Home</h1>
+[%end%]

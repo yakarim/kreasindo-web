@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="text-center">
+        <form class="form-signin" action="/login__jwt" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label class="sr-only">Email address</label>
+            <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+            <br>
+            <label class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; <%time.Now()%></p>
+        </form>
+    </div>
+  </div>
