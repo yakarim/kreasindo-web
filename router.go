@@ -24,7 +24,7 @@ func routers(ctx *atreugo.Atreugo) {
 func Index(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
 
-	return c.HTMLJet(ctx, 200, "home", config.H{
+	return c.HTML(ctx, 200, "home", config.H{
 		"title":    "Halaman Depan",
 		"username": string(u.Username),
 		"signIn":   signIn,
@@ -33,7 +33,7 @@ func Index(ctx *atreugo.RequestCtx) error {
 
 func home(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
-	return c.HTMLJet(ctx, 200, "home", config.H{
+	return c.HTML(ctx, 200, "home", config.H{
 		"title":    "Halaman Depan",
 		"username": string(u.Username),
 		"signIn":   signIn,

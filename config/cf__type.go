@@ -6,5 +6,5 @@ import "github.com/CloudyKit/jet/v3"
 type Config struct{}
 
 var (
-	views = jet.NewHTMLSet("./template")
+	views = jet.NewHTMLSet("./templates")
 )

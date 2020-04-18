@@ -9,7 +9,7 @@ import (
 func (c *Controller) UserTemplates(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
 	data, _ := c.User.Query()
-	return c.HTMLJet(ctx, 200, "users/view", config.H{
+	return c.HTML(ctx, 200, "users/view", config.H{
 		"title":    "User Pages",
 		"username": string(u.Username),
 		"signIn":   signIn,
