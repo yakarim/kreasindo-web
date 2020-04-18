@@ -9,6 +9,7 @@ import (
 var c controller.Controller
 
 func routers(ctx *atreugo.Atreugo) {
+	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
 	ctx.GET("/news", home)
 	ctx.GET("/login", c.Login)
