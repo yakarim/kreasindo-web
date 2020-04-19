@@ -5,6 +5,7 @@ import (
 
 	"github.com/CloudyKit/jet/v3"
 	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/go-logger"
 )
 
 // HTML ...
@@ -14,7 +15,7 @@ func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) er
 	views.Delims("[%", "%]")
 	t, err := views.GetTemplate(page + ".jet.html")
 	if err != nil {
-		// template could not be loaded
+		logger.Fatal(err)
 	}
 	go c.globalFunc(views)
 	vars := make(jet.VarMap)
