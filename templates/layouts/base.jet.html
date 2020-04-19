@@ -14,7 +14,9 @@
 
 <body>
   [% include "layouts/header.jet.html" %]
-  [% yield body() %]
+  <div class="container">
+    [% yield body() %]
+  </div>
 </body>
 
 </html>
