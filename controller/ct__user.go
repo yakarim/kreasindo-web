@@ -39,7 +39,7 @@ func (c *User) Create(ctx *atreugo.RequestCtx) error {
 
 	if string(username) == "" || string(email) == "" || string(password) == "" {
 		fmt.Println("isi form")
-		ctx.Redirect("./user", 200)
+		ctx.Redirect("/user", 200)
 	} else {
 		var user database.User
 		user.Username = string(username)
@@ -47,10 +47,10 @@ func (c *User) Create(ctx *atreugo.RequestCtx) error {
 		user.Password = string(password)
 		err := c.User.Create(user)
 		if err != nil {
-			ctx.Redirect("./user", 200)
+			ctx.Redirect("/user", 200)
 			fmt.Println(err)
 		}
-		ctx.Redirect("./user", 200)
+		ctx.Redirect("/user", 200)
 	}
 	return nil
 }
