@@ -13,7 +13,7 @@ func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) er
 
 	views.SetDevelopmentMode(true)
 	views.Delims("[%", "%]")
-	t, err := views.GetTemplate(page + ".jet.html")
+	t, err := views.GetTemplate(page + ".html")
 	if err != nil {
 		logger.Fatal(err)
 	}

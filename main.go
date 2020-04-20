@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	port := os.Getenv("PORT")
 	var config atreugo.Config
 	if port == "8080" {
@@ -32,8 +32,8 @@ func main() {
 	}
 
 	ctx := atreugo.New(config)
-	go routers(ctx)
-	go static(ctx)
+	routers(ctx)
+	static(ctx)
 
 	if err := ctx.ListenAndServe(); err != nil {
 		panic(err)

@@ -13,12 +13,14 @@
 </head>
 
 <body>
-  [% include "layouts/header.jet.html" %]
+  [% include "layouts/header.html" %]
   <br>
   <br>
+  <main>
   <div class="container">
     [% yield body() %]
   </div>
+  </main>
 </body>
 
 </html>

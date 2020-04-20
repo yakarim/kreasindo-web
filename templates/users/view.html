@@ -1,0 +1,41 @@
+[% extends "layouts/base.html" %]
+[% block body() %]
+<div class="row">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+        Create
+    </button>
+    <br>
+</div>
+<div class="row">
+    <div class="" v-if="!loading">
+        <table class="table table-bordered table-sm table-responsive">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">-</th>
+                </tr>
+            </thead>
+            <tbody [%range index, value := .data %]>
+                <tr>
+                    <th scope="row">[% index + 1 %]</th>
+                    <td>[%value.Username%]</td>
+                    <td>[%value.Email%]</td>
+                    <td>[%value.Password %]</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#updateModal" @click="updateData(item)">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-danger pull-right" data-toggle="modal"
+                            @click="deleteData(item.ID)">Delete</button>
+                    </td>
+                </tr>
+            </tbody [%end%]>
+        </table>
+    </div>
+</div>
+
+[%end%]
