@@ -15,9 +15,11 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 
-	ctxUser := ctx.NewGroupPath("/user__view")
+	ctxUser := ctx.NewGroupPath("/user")
 	ctxUser.UseBefore(c.AuthMiddleware)
 	ctxUser.GET("", c.User.View)
+	ctxUser.POST("", c.User.Create)
+	ctxUser.GET("/delete:key", c.User.Delete)
 
 }
 

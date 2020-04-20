@@ -4,6 +4,8 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
         Create
     </button>
+    [% include "users/create.html" %]
+
     <br>
 </div>
 <div class="row">
@@ -29,13 +31,13 @@
                             data-target="#updateModal" @click="updateData(item)">
                             Edit
                         </button>
-                        <button type="button" class="btn btn-danger pull-right" data-toggle="modal"
-                            @click="deleteData(item.ID)">Delete</button>
+                        <a class="btn btn-danger pull-right" data-confirm="Are you sure?" data-method="delete" href="./user/delete[%value.ID%]" rel="nofollow">Delete</a>
+                       
                     </td>
                 </tr>
             </tbody [%end%]>
         </table>
     </div>
 </div>
-
+[% include "users/update.html" %]
 [%end%]
