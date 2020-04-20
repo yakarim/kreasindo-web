@@ -17,7 +17,7 @@ func routers(ctx *atreugo.Atreugo) {
 
 	ctxUser := ctx.NewGroupPath("/user__view")
 	ctxUser.UseBefore(c.AuthMiddleware)
-	ctxUser.GET("", c.UserTemplates)
+	ctxUser.GET("", c.User.View)
 
 }
 
