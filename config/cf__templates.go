@@ -1,6 +1,7 @@
 package config
 
 import (
+	"os"
 	"time"
 
 	"github.com/CloudyKit/jet/v3"
@@ -10,8 +11,17 @@ import (
 
 // HTML ...
 func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) error {
+	p := os.Getenv("PORT")
+	if p == "8080" {
+		views.SetDevelopmentMode(true)
+		t, vars := c.template(ctx, code, page)
+		return t.Execute(ctx.RequestCtx, vars, data)
+	}
+	t, vars := c.template(ctx, code, page)
+	return t.Execute(ctx.RequestCtx, vars, data)
+}
 
-	views.SetDevelopmentMode(true)
+func (c *Config) template(ctx *atreugo.RequestCtx, code int, page string) (*jet.Template, jet.VarMap) {
 	views.Delims("[%", "%]")
 	t, err := views.GetTemplate(page + ".html")
 	if err != nil {
@@ -22,9 +32,7 @@ func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) er
 
 	ctx.SetStatusCode(code)
 	ctx.Response.Header.Set("Content-Type", "text/html; charset=UTF-8")
-
-	return t.Execute(ctx.RequestCtx, vars, data)
-
+	return t, vars
 }
 
 func (c *Config) globalFunc(view *jet.Set) {
