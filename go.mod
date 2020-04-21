@@ -7,6 +7,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/google/uuid v1.1.1
 	github.com/jinzhu/gorm v1.9.12
+	github.com/json-iterator/go v1.1.9
 	github.com/savsgio/atreugo/v10 v10.4.2
 	github.com/savsgio/go-logger v1.0.0
 	github.com/valyala/fasthttp v1.11.0

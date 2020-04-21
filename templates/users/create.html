@@ -2,7 +2,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form  action="./user" method="post">
+            <form @submit="submitCreate" ref="formHTMLcreate">
                 <div class="modal-body">
                     <div class="form-group">
                     <input type="text" name="username" placeholder="username">

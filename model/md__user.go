@@ -31,21 +31,23 @@ func (m *User) Create(user database.User) error {
 	if err := db.Model(&m.User).Create(&user).Error; err != nil {
 		return err
 	}
-	return errors.New("SUKSES_EMAIL")
+	return nil
 }
 
 // Update user.
 func (m *User) Update(user database.User) error {
 	if user.Password == "" {
-		if err := db.Model(&m.User).Create(&user).Error; err != nil {
+		if err := db.Model(&m.User).Update(&user).Error; err != nil {
 			return err
 		}
+	} else {
+		user.Password = m.HashAndSalt(m.GetPwd(user.Password))
+		if err := db.Model(&m.User).Update(&user).Error; err != nil {
+			return err
+		}
+		return errors.New("SUKSES_EMAIL")
 	}
-	user.Password = m.HashAndSalt(m.GetPwd(user.Password))
-	if err := db.Model(&m.User).Create(&user).Error; err != nil {
-		return err
-	}
-	return errors.New("SUKSES_EMAIL")
+	return nil
 }
 
 // Delete ...

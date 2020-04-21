@@ -1,0 +1,104 @@
+<script>
+    new Vue({
+        el: '#user-id',
+        data: {
+            isEditing: false,
+            loading: false,
+            items: [],
+            update: {
+                ID: '',
+                username: '',
+                email: '',
+                password: ''
+            },
+            posts: {
+                username: '',
+                email: '',
+                password: ''
+            },
+        },
+        mounted() {
+            this.load()
+        },
+        methods: {
+            load() {
+                this.loading = true
+                axios
+                    .get('./user/json')
+                    .then(response => {
+                            this.items = response.data.users
+                            this.loading = false
+                        }
+                    )
+                    .catch(error => {
+                        this.loading = false
+                    })
+            },
+            submitCreate: async function (ee) {
+                this.loading = true
+                ee.preventDefault();
+                var formData = new FormData(this.$refs.formHTMLcreate);
+                await axios({
+                        method: "post",
+                        url: "./user",
+                        data: formData,
+                        config: {
+                            headers: {
+                                "Content-Type": "multipart/form-data"
+                            }
+                        }
+                    })
+                    .then(response => {
+                        this.load()
+                        this.loading = false
+                    })
+                    .catch(error => {
+                        alert(error.response.data.msg);
+                        this.loading = false
+                    });
+                ee.target.reset()
+            },
+
+            updateData: function (item) {
+                this.update.ID = item.ID
+                this.update.username = item.username
+                this.update.email = item.email
+            },
+            submitUpdate: async function (ee) {
+                this.loading = true
+                ee.preventDefault();
+                var formData = new FormData(this.$refs.formHTMLupdate);
+                await axios({
+                        method: "put",
+                        url: "./user",
+                        data: formData,
+                        config: {
+                            headers: {
+                                "Content-Type": "multipart/form-data"
+                            }
+                        }
+                    })
+                    .then(response => {
+                        this.load()
+                        this.loading = false
+                    })
+                    .catch(error => {
+                        alert(error.response.data.message);
+                        this.loading = false
+                    });
+                ee.target.reset()
+            },
+            deleteData: function (id) {
+                this.loading = true
+                axios.delete('./user/del' + id)
+                    .then(response => {
+                        this.loading = false
+                        this.load()
+                    }).catch(error => {
+                        this.loading = false
+                        this.load()
+                    });
+            },
+        }
+    })
+</script>
