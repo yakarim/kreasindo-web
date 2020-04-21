@@ -36,6 +36,9 @@ func (m *User) Create(user database.User) error {
 
 // Update user.
 func (m *User) Update(user database.User) error {
+	if !db.Where("email = ?", user.Email).First(&user).RecordNotFound() {
+		return errors.New("EMAIL_FOUND")
+	}
 	if user.Password == "" {
 		if err := db.Model(&m.User).Update(&user).Error; err != nil {
 			return err
@@ -45,7 +48,6 @@ func (m *User) Update(user database.User) error {
 		if err := db.Model(&m.User).Update(&user).Error; err != nil {
 			return err
 		}
-		return errors.New("SUKSES_EMAIL")
 	}
 	return nil
 }
