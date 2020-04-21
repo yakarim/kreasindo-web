@@ -24,7 +24,7 @@ func (m *User) Query() ([]database.User, error) {
 
 // Create user.
 func (m *User) Create(user database.User) error {
-	if !db.Where("email = ?", user.Email).First(&user).RecordNotFound() {
+	if !db.Where("email = ?", user.Email).First(&m.User).RecordNotFound() {
 		return errors.New("EMAIL_FOUND")
 	}
 	user.Password = m.HashAndSalt(m.GetPwd(user.Password))

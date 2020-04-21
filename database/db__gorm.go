@@ -13,6 +13,14 @@ import (
 // DB ... gorm
 var DB *gorm.DB
 
+const (
+	host     = "ec2-52-71-231-180.compute-1.amazonaws.com"
+	port     = 5432
+	database = "d4hq86psqtvd0e"
+	user     = "kwpicwgoeksjds"
+	pass     = "1ff0cd6a150c7486649d7c8ef2f7f12a5671567c8631374e8c742b75aabbcecc"
+)
+
 func init() {
 
 	var db *gorm.DB
@@ -28,7 +36,7 @@ func init() {
 		db = b
 	} else {
 		psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=require",
-			"ec2-54-92-174-171.compute-1.amazonaws.com", 5432, "mqthtkprxhgcol", "cb6e1b8a1832614c8d86d28b7ae8e8128b382f4e112fc76be231fb61e9b9c0f0", "d2lvvitjtckt84")
+			host, port, user, pass, database)
 
 		b, err := gorm.Open("postgres", psql)
 		if err != nil {
