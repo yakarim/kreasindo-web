@@ -1,5 +1,15 @@
+$color:(
+    primary : rgb(213, 241, 168),
+    acient: #797999,
+);
+
+body,
+html {
+    height: 100%;
+}
 
 body {
-    background-color: gainsboro;
+    background-color: map-get($color, primary);
+    margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
 }

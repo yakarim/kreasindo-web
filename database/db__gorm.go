@@ -34,8 +34,8 @@ func init() {
 
 }
 
-func pqsl(host, user, pass, database, ssl string, port int) *gorm.DB {
-	psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s ", host, port, user, pass, database, ssl)
+func pqsl(host, user, pass, database, sslmode string, port int) *gorm.DB {
+	psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s ", host, port, user, pass, database, sslmode)
 
 	b, err := gorm.Open("postgres", psql)
 	if err != nil {

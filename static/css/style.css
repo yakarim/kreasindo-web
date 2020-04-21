@@ -1,5 +1,11 @@
+body,
+html {
+  height: 100%;
+}
+
 body {
-  background-color: gainsboro;
+  background-color: #d5f1a8;
+  margin: 0;
   font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 /*# sourceMappingURL=style.css.map */
