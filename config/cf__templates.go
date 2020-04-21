@@ -17,6 +17,8 @@ func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) er
 		t, vars := c.template(ctx, code, page)
 		return t.Execute(ctx.RequestCtx, vars, data)
 	}
+	views.SetDevelopmentMode(true)
+
 	t, vars := c.template(ctx, code, page)
 	return t.Execute(ctx.RequestCtx, vars, data)
 }
