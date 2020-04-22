@@ -16,7 +16,6 @@ func main() {
 		config = atreugo.Config{
 			Addr:     "0.0.0.0:8080",
 			Name:     "Kreasindo Pratama",
-			Compress: true,
 			LogLevel: logger.DEBUG,
 		}
 	} else {

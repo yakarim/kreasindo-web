@@ -1,12 +1,11 @@
-$colors:(
-    primary : rgb(52, 106, 255),
+$colors:(primary : rgb(52, 106, 255),
     primary-light : lighten(rgb(52, 106, 255), 40%),
     acient: #aaece3,
 );
 $desktop : 840px;
 
-@function color($color-name){
-    @return map-get($colors, $color-name )
+@function color($color-name) {
+    @return map-get($colors, $color-name)
 }
 
 @mixin desktop {
@@ -14,6 +13,7 @@ $desktop : 840px;
         @content;
     }
 }
+
 body,
 html {
     height: 100%;
@@ -28,4 +28,9 @@ body {
     @include desktop {
         font-size: medium;
     }
+}
+
+.breadcrumb {
+    background-color: color(acient);
+    padding: 0%;
 }

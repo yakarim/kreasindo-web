@@ -15,4 +15,9 @@ body {
     font-size: medium;
   }
 }
+
+.breadcrumb {
+  background-color: #aaece3;
+  padding: 0%;
+}
 /*# sourceMappingURL=style.css.map */

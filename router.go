@@ -11,7 +11,7 @@ var c controller.Controller
 func routers(ctx *atreugo.Atreugo) {
 	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
-	ctx.GET("/news", home)
+	ctx.GET("/specialist", specialist)
 	ctx.GET("/contact", c.ContactDepan)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
@@ -34,17 +34,17 @@ func routers(ctx *atreugo.Atreugo) {
 func Index(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
 
-	return c.HTML(ctx, 200, "home", config.H{
-		"title":    "Halaman Depan",
+	return c.HTML(ctx, 200, "pages/home", config.H{
+		"title":    "Home",
 		"username": string(u.Username),
 		"signIn":   signIn,
 	})
 }
 
-func home(ctx *atreugo.RequestCtx) error {
+func specialist(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
-	return c.HTML(ctx, 200, "home", config.H{
-		"title":    "Halaman Depan",
+	return c.HTML(ctx, 200, "pages/specialist", config.H{
+		"title":    "Specialist",
 		"username": string(u.Username),
 		"signIn":   signIn,
 	})
