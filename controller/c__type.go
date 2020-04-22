@@ -8,7 +8,8 @@ import (
 // Controller type.
 type Controller struct {
 	config.Config
-	User User
+	User    User
+	Contact Contact
 }
 
 var db = database.DB

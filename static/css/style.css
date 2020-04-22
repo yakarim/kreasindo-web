@@ -5,7 +5,14 @@ html {
 
 body {
   background-color: #aaece3;
+  font-size: small;
   margin: 0;
   font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+@media (min-width: 840px) {
+  body {
+    font-size: medium;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,10 +1,18 @@
 $colors:(
     primary : rgb(52, 106, 255),
+    primary-light : lighten(rgb(52, 106, 255), 40%),
     acient: #aaece3,
 );
+$desktop : 840px;
 
 @function color($color-name){
     @return map-get($colors, $color-name )
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
 }
 body,
 html {
@@ -13,6 +21,11 @@ html {
 
 body {
     background-color: color(acient);
+    font-size: small;
     margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    @include desktop {
+        font-size: medium;
+    }
 }

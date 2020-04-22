@@ -12,7 +12,7 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
 	ctx.GET("/news", home)
-	ctx.GET("/contact", c.Contact)
+	ctx.GET("/contact", c.ContactDepan)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 
@@ -23,6 +23,10 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxUser.POST("", c.User.Create)
 	ctxUser.PUT("", c.User.Update)
 	ctxUser.DELETE("/del:key", c.User.Delete)
+
+	ctxContact := ctx.NewGroupPath("/contact-admin")
+	ctxContact.UseBefore(c.AuthMiddleware)
+	ctxContact.GET("", c.Contact.View)
 
 }
 
