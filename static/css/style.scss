@@ -1,15 +1,18 @@
-$color:(
-    primary : rgb(213, 241, 168),
-    acient: #797999,
+$colors:(
+    primary : rgb(52, 106, 255),
+    acient: #aaece3,
 );
 
+@function color($color-name){
+    @return map-get($colors, $color-name )
+}
 body,
 html {
     height: 100%;
 }
 
 body {
-    background-color: map-get($color, primary);
+    background-color: color(acient);
     margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
 }

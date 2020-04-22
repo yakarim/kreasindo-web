@@ -58,4 +58,5 @@ func (m *User) Delete(id string) error {
 		return err
 	}
 	return errors.New("SUKSES_EMAIL")
+
 }

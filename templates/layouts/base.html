@@ -14,14 +14,16 @@
 </head>
 
 <body>
-  [% include "layouts/header.html" %]
+  <header>
+    [% include "layouts/header.html" %]
+  </header>
   <br>
   <br>
   <br>
   <main>
-  <div class="container">
-    [% yield body() %]
-  </div>
+    <div class="container">
+      [% yield body() %]
+    </div>
   </main>
 </body>
 

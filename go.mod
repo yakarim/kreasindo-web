@@ -8,6 +8,7 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/jinzhu/gorm v1.9.12
 	github.com/json-iterator/go v1.1.9
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/savsgio/atreugo/v10 v10.4.2
 	github.com/savsgio/go-logger v1.0.0
 	github.com/valyala/fasthttp v1.11.0

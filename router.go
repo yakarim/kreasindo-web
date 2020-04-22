@@ -12,6 +12,7 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
 	ctx.GET("/news", home)
+	ctx.GET("/contact", c.Contact)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 

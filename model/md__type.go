@@ -6,7 +6,8 @@ import (
 
 // Model ...
 type Model struct {
-	User User
+	User    User
+	Contact Contact
 }
 
 var db = database.DB
