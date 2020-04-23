@@ -82,7 +82,5 @@ func (c *User) Delete(ctx *atreugo.RequestCtx) error {
 	if err != nil {
 		ctx.JSONResponse(config.H{"msg": err.Error()}, 404)
 	}
-	ctx.Redirect("/user", 200)
-
-	return nil
+	return ctx.JSONResponse(config.H{"msg": "sukses"}, 200)
 }

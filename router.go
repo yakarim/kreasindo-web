@@ -16,7 +16,7 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 
-	ctxUser := ctx.NewGroupPath("/user")
+	ctxUser := ctx.NewGroupPath("/user-admin")
 	ctxUser.UseBefore(c.AuthMiddleware)
 	ctxUser.GET("", c.User.View)
 	ctxUser.GET("/json", c.User.JSON)
