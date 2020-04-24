@@ -32,7 +32,7 @@ func init() {
 	} else {
 		db = pqsl(host, user, pass, database, sslmode, port)
 	}
-	db.AutoMigrate(&User{}, &Contact{}, &Images{}, &Abouth{})
+	db.AutoMigrate(&User{}, &Contact{}, &Images{}, &Abouth{}, &Specialist{}, &Gallery{})
 	DB = db
 
 }

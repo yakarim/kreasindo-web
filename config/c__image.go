@@ -42,7 +42,7 @@ func (c *Config) ShowImage(ctx *atreugo.RequestCtx) error {
 	var b database.Images
 	id := ctx.UserValue("id")
 
-	if err := db.Debug().Where("UID = ?", id.(string)).First(&b).Error; err != nil {
+	if err := db.Where("UID = ?", id.(string)).First(&b).Error; err != nil {
 		return err
 	}
 	n := int64(b.Size)
