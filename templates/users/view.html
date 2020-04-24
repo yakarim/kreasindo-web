@@ -2,7 +2,7 @@
 [% block body() %]
 <div class="container" id="user-id">
     <div class="row">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+        <button type="button" class="btn btn-primary  btn-sm" data-toggle="modal" data-target="#createModal">
             Create
         </button>
         [% include "users/create.html" %]
@@ -28,11 +28,11 @@
                             <td>{{ item.username }}</td>
                             <td>{{ item.email }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-primary  btn-sm" data-toggle="modal"
                                     data-target="#updateModal" @click="updateData(item)">
                                     Edit
                                 </button>
-                                <button type="button" class="btn btn-danger pull-right" data-toggle="modal"
+                                <button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal"
                                     @click="deleteData(item.ID, index)">Delete</button>
                             </td>
                         </tr>

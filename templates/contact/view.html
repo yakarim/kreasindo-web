@@ -1,5 +1,52 @@
 [% extends "layouts/base.html" %]
 [% block body() %]
-    This content will be yielded in the layout above. hhhh
-    [%.username%]
+<div id="contact-id">
+    <div class="text-center" v-if="loading">
+        <div class="fa-3x">
+            <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+    </div>
+    <div v-if="!loading">
+        <form @submit="submitCreate" ref="formHTML">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- [1, 0] -->
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Image</label>
+                        <input type="file" name="file" @change="onFileChange" accept="image/*">
+                        <div class="help-block with-errors"></div>
+                        <div class="image-preview" v-if="url">
+                            <img class="preview" :src="url">
+                        </div>
+                        <div class="image-preview" v-if="!url">
+                            <img class="preview" :src="imageSrc(items.ID)">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-sm-9">
+                    <!-- [1, 1] -->
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Alamat</label>
+                        <input class="form-control" type="text" name="alamat" v-model="items.alamat">
+
+                        <div class="help-block with-errors"></div>
+
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Telp</label>
+                        <input class="form-control" type="text" name="telpon" v-model="items.telp" rows="10">
+                        <div class="help-block with-errors"> </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <button type="submit" name="button">Save</button>
+                        <div class="help-block with-errors"> </div>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+[% include "contact/vuejs.html" %]
+
 [% end %]

@@ -40,8 +40,9 @@ func (c *Config) Image(file *multipart.FileHeader, width, height uint) (string, 
 // ShowImage ...
 func (c *Config) ShowImage(ctx *atreugo.RequestCtx) error {
 	var b database.Images
-	img := ctx.UserValue("id")
-	if err := db.Where("UID =", img).First(&b).Error; err != nil {
+	id := ctx.UserValue("id")
+
+	if err := db.Debug().Where("UID = ?", id.(string)).First(&b).Error; err != nil {
 		return err
 	}
 	n := int64(b.Size)

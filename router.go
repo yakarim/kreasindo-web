@@ -4,17 +4,21 @@ import (
 	"github.com/savsgio/atreugo/v10"
 	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/controller"
+	"github.com/yakarim/kreasindo-web/database"
 )
 
 var c controller.Controller
 
 func routers(ctx *atreugo.Atreugo) {
+
 	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
 	ctx.GET("/specialist", specialist)
-	ctx.GET("/contact", c.ContactDepan)
+	ctx.GET("/contact", c.Contact.ContactDepan)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
+	ctx.GET("/images", Image)
+	ctx.GET("/imagesv/:id", c.ShowImage)
 
 	ctxUser := ctx.NewGroupPath("/user-admin")
 	ctxUser.UseBefore(c.AuthMiddleware)
@@ -27,7 +31,16 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxContact := ctx.NewGroupPath("/contact-admin")
 	ctxContact.UseBefore(c.AuthMiddleware)
 	ctxContact.GET("", c.Contact.View)
+	ctxContact.GET("/json", c.Contact.JSON)
+	ctxContact.POST("", c.Contact.Create)
 
+}
+
+// Image ...
+func Image(ctx *atreugo.RequestCtx) error {
+	var img []database.Images
+	database.DB.Find(&img)
+	return ctx.JSONResponse(img, 200)
 }
 
 // Index ...

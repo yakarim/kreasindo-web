@@ -17,16 +17,8 @@ func (c *Contact) Query() (Contact, error) {
 }
 
 // Create contact.
-func (c *Contact) Create(contact Contact) error {
-	if err := db.Model(&c.Contact).Create(&contact).Error; err != nil {
-		return err
-	}
-	return nil
-}
-
-// Update contact.
-func (c *Contact) Update(contact Contact) error {
-	if err := db.Model(&c.Contact).Update(&contact).Error; err != nil {
+func (c *Contact) Create(contact database.Contact) error {
+	if err := db.Model(&c.Contact).Save(&contact).Error; err != nil {
 		return err
 	}
 	return nil

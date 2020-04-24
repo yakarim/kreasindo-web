@@ -1,0 +1,59 @@
+<script>
+    new Vue({
+        el: '#contact-id',
+        data: {
+            loading: false,
+            url: null,
+            items: {
+                file: '',
+                alamat: '',
+                telp: '',
+            },
+
+        },
+        mounted() {
+            this.load()
+        },
+        methods: {
+            imageSrc: function (ees) {
+                return '/imagesv/' + ees + "?timestamp=" + new Date().getTime()
+            },
+            load() {
+                this.loading = true
+                axios
+                    .get('./contact-admin/json')
+                    .then(response => (this.items = response.data.contacts, this.loading = false))
+                    .catch(error => {
+                        this.loading = false
+                    })
+            },
+            onFileChange(e) {
+                const file = e.target.files[0];
+                this.url = URL.createObjectURL(file);
+            },
+            submitCreate: async function (e) {
+                 this.loading = true
+                e.preventDefault();
+                var formData = new FormData(this.$refs.formHTML);
+                await axios({
+                        method: "post",
+                        url: "./contact-admin",
+                        data: formData,
+                        config: {
+                            headers: {
+                                "Content-Type": "multipart/form-data"
+                            }
+                        }
+                    })
+                    .then(resp => {
+                        this.load()
+                        this.loading = false
+                    })
+                    .catch(error => {
+                        alert(error.response.data.msg);
+                        this.loading = false
+                    });
+            },
+        }
+    })
+</script>

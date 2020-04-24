@@ -50,7 +50,7 @@ type Gallery struct {
 
 // Images ...
 type Images struct {
-	UID  string `gorm:"primary_key"`
+	UID  string `gorm:"primary_key" `
 	Name string `json:"name"`
 	Body []byte `json:"body"`
 	Type string `json:"type"`
