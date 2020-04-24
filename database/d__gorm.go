@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sync"
 
 	"github.com/jinzhu/gorm"
 	// database ...
@@ -12,8 +13,10 @@ import (
 
 // DB ... gorm
 var DB *gorm.DB
+var once sync.Once
 
 func init() {
+
 	const (
 		host     = "ec2-52-71-231-180.compute-1.amazonaws.com"
 		port     = 5432
@@ -35,11 +38,17 @@ func init() {
 }
 
 func pqsl(host, user, pass, database, sslmode string, port int) *gorm.DB {
-	psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s ", host, port, user, pass, database, sslmode)
+	var bb *gorm.DB
 
-	b, err := gorm.Open("postgres", psql)
-	if err != nil {
-		log.Println(err)
-	}
-	return b
+	once.Do(func() {
+		psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s ", host, port, user, pass, database, sslmode)
+
+		b, err := gorm.Open("postgres", psql)
+		if err != nil {
+			log.Println(err)
+		}
+		bb = b
+	})
+	return bb
+
 }

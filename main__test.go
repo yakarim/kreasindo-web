@@ -31,7 +31,7 @@ func TestGet(t *testing.T) {
 	start := time.Now()
 	for i := 0; i < N; i++ {
 		go func() {
-			if err := doRequest("http://127.0.0.1:8080"); err != nil {
+			if err := doRequest("https://kreasindo-web.herokuapp.com/"); err != nil {
 				t.Error(err)
 			}
 			wg.Done()
