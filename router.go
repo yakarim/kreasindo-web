@@ -13,7 +13,7 @@ func routers(ctx *atreugo.Atreugo) {
 
 	ctx.UseBefore(c.SecurityTime)
 	ctx.GET("/", Index)
-	ctx.GET("/specialist", specialist)
+	ctx.GET("/specialist", c.Specialist.SpecialistDepan)
 	ctx.GET("/contact", c.Contact.ContactDepan)
 	ctx.GET("/abouth", c.Abouth.AbouthDepan)
 
@@ -41,6 +41,14 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxAbouth.GET("", c.Abouth.View)
 	ctxAbouth.GET("/json", c.Abouth.JSON)
 	ctxAbouth.POST("", c.Abouth.Create)
+
+	ctxSpecialist := ctx.NewGroupPath("/specialist-admin")
+	ctxSpecialist.UseBefore(c.AuthMiddleware)
+	ctxSpecialist.GET("", c.Specialist.View)
+	ctxSpecialist.GET("/json", c.User.JSON)
+	ctxSpecialist.POST("", c.User.Create)
+	ctxSpecialist.PUT("", c.User.Update)
+	ctxSpecialist.DELETE("/del:key", c.User.Delete)
 }
 
 // Image ...
@@ -53,18 +61,8 @@ func Image(ctx *atreugo.RequestCtx) error {
 // Index ...
 func Index(ctx *atreugo.RequestCtx) error {
 	u, signIn, _ := c.Auth(ctx)
-
 	return c.HTML(ctx, 200, "pages/home", config.H{
 		"title":    "Home",
-		"username": string(u.Username),
-		"signIn":   signIn,
-	})
-}
-
-func specialist(ctx *atreugo.RequestCtx) error {
-	u, signIn, _ := c.Auth(ctx)
-	return c.HTML(ctx, 200, "pages/specialist", config.H{
-		"title":    "Specialist",
 		"username": string(u.Username),
 		"signIn":   signIn,
 	})
