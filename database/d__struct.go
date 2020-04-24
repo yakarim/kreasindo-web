@@ -72,11 +72,3 @@ type Contact struct {
 	Image  Images `gorm:"foreignkey:uid;association_foreignkey:id"`
 	Telp   string `json:"telp"`
 }
-
-// Tentang ...
-type Tentang struct {
-	Base
-	Title string `json:"title"`
-	Image Images `gorm:"foreignkey:uid;association_foreignkey:id"`
-	Desc  string `json:"desc"`
-}

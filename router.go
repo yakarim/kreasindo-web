@@ -15,6 +15,8 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/", Index)
 	ctx.GET("/specialist", specialist)
 	ctx.GET("/contact", c.Contact.ContactDepan)
+	ctx.GET("/abouth", c.Abouth.AbouthDepan)
+
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 	ctx.GET("/images", Image)
@@ -34,6 +36,11 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxContact.GET("/json", c.Contact.JSON)
 	ctxContact.POST("", c.Contact.Create)
 
+	ctxAbouth := ctx.NewGroupPath("/abouth-admin")
+	ctxAbouth.UseBefore(c.AuthMiddleware)
+	ctxAbouth.GET("", c.Abouth.View)
+	ctxAbouth.GET("/json", c.Abouth.JSON)
+	ctxAbouth.POST("", c.Abouth.Create)
 }
 
 // Image ...

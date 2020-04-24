@@ -8,6 +8,7 @@ import (
 type Model struct {
 	User    User
 	Contact Contact
+	Abouth  Abouth
 }
 
 var db = database.DB

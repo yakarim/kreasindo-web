@@ -1,0 +1,26 @@
+[% extends "layouts/base.html" %]
+[% block body() %]
+<div style="margin-bottom: 14.5%;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">[%.title%]</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="preview" src="/imagesv/[% .data.ID%]" alt="">
+        </div>
+        <div class="col-sm-7">
+            Tentang :
+            </h2>
+            <p></p>
+            <h2> [%.data.Title%] </h2>
+            <h3> <i class="fas fa-phone-square-alt"></i> [%.data.Desc%]</h3>
+        </div>
+        
+    </div>
+
+</div>
+
+[% end %]

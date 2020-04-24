@@ -10,6 +10,7 @@ type Controller struct {
 	config.Config
 	User    User
 	Contact Contact
+	Abouth  Abouth
 }
 
 var db = database.DB

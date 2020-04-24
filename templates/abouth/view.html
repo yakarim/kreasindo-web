@@ -1,0 +1,52 @@
+[% extends "layouts/base.html" %]
+[% block body() %]
+<div id="abouth-id">
+    <div class="text-center" v-if="loading">
+        <div class="fa-3x">
+            <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+    </div>
+    <div v-if="!loading">
+        <form @submit="submitCreate" ref="formHTML">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- [1, 0] -->
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Image</label>
+                        <input type="file" name="file" @change="onFileChange" accept="image/*">
+                        <div class="help-block with-errors"></div>
+                        <div class="image-preview" v-if="url">
+                            <img class="preview" :src="url">
+                        </div>
+                        <div class="image-preview" v-if="!url">
+                            <img class="preview" :src="imageSrc(items.ID)">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-sm-9">
+                    <!-- [1, 1] -->
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Title</label>
+                        <input class="form-control" type="text" name="title" v-model="items.title">
+
+                        <div class="help-block with-errors"></div>
+
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label id="fieldTitle">Desc</label>
+                        <textarea class="form-control" type="text" name="desc" v-model="items.desc" rows="10"></textarea>
+                        <div class="help-block with-errors"> </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <button type="submit" name="button">Save</button>
+                        <div class="help-block with-errors"> </div>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+[% include "abouth/vuejs.html" %]
+
+[% end %]
