@@ -19,6 +19,8 @@
                     [% if not .signIn   %]
                     <a class="nav-item nav-link" href="./login">SignIn</a>
                     [%else%]
+                    <a class="nav-item nav-link" href="./person">Person</a>
+
                     <a class="nav-link" href="/user-admin">User-Admin</a>
                     <a class="nav-link" href="/login">SignOut ([% .username%]) </a>
                     [%end%]

@@ -16,7 +16,8 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/specialist", c.Specialist.SpecialistDepan)
 	ctx.GET("/contact", c.Contact.ContactDepan)
 	ctx.GET("/abouth", c.Abouth.AbouthDepan)
-
+	ctx.GET("/person", c.Person.View)
+	ctx.GET("/person_create", c.Person.Create)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 	ctx.GET("/images", Image)
