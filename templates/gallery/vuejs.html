@@ -1,0 +1,23 @@
+<script>
+    new Vue({
+        el: '#gallery-id',
+        data: {
+            loading: false,
+
+        },
+        mounted() {
+            this.load()
+        },
+        methods: {
+            load() {
+                axios
+                    .get('./gallery-admin/json')
+                    .then(response => {
+                        console.log(response.data)
+                    })
+                this.loading = false
+            }
+        },
+    })
+    
+</script>

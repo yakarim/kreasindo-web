@@ -10,6 +10,7 @@ type Model struct {
 	Contact    Contact
 	Abouth     Abouth
 	Specialist Specialist
+	Gallery    Gallery
 }
 
 var db = database.DB

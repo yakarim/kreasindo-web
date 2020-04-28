@@ -1,0 +1,27 @@
+[% extends "layouts/base.html" %]
+[% block body() %]
+<div id="gallery-id">
+
+<div style="margin-bottom: 14.5%;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">[%.title%]</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-sm-4">
+          
+        </div>
+        <div class="col-sm-7">
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+[% include "gallery/vuejs.html" %]
+
+[% end %]

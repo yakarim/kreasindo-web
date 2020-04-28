@@ -12,7 +12,7 @@ type Controller struct {
 	Contact    Contact
 	Abouth     Abouth
 	Specialist Specialist
-	Person     Person
+	Gallery    Gallery
 }
 
 var db = database.DB

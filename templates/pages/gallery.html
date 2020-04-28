@@ -10,7 +10,10 @@
    
     <div class="row">
         <div class="col-sm-4">
-           
+           [% range index, value := .data%]
+                [%value.Name%]
+                [%value.Desc%]
+           [%end%]
         </div>
         <div class="col-sm-7">
            

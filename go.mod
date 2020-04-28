@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/CloudyKit/jet/v3 v3.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/favadi/protoc-go-inject-tag v1.0.0 // indirect
 	github.com/golang/protobuf v1.4.0
 	github.com/google/uuid v1.1.1
 	github.com/jinzhu/gorm v1.9.12
