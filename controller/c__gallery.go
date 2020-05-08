@@ -3,7 +3,7 @@ package controller
 import (
 	"log"
 
-	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/atreugo/v11"
 	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/model"
 )

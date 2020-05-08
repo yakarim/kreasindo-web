@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/atreugo/v11"
 )
 
 func static(ctx *atreugo.Atreugo) {

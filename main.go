@@ -4,7 +4,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/atreugo/v11"
 	"github.com/savsgio/go-logger"
 )
 

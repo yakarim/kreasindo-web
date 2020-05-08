@@ -20,6 +20,8 @@ github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5 h1:Yzb9+7DP
 github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5/go.mod h1:a2zkGnVExMxdzMo3M0Hi/3sEU+cWnZpSni0O6/Yb/P0=
 github.com/fasthttp/router v0.7.0 h1:k2ZhnUNPr7CLXSwDSNvkuOtH4vSijR1Kjjxh0gYzWVQ=
 github.com/fasthttp/router v0.7.0/go.mod h1:00BQmm3xiThNypescxIQ+Gfgw2I/3QWKvuagFoENUb4=
+github.com/fasthttp/router v1.0.4 h1:boxeE3vbutHTNAqQsUTm3IdRTjaQ5uFoRrGC+2Y1iwY=
+github.com/fasthttp/router v1.0.4/go.mod h1:3ZGZormG7E+VbnYeToF+zmcF4oBGcAKOD8a8XL+fOZo=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/favadi/protoc-go-inject-tag v1.0.0 h1:I1CM4x2YXN9XueTnPKAr4jDSS0Om3y6LB9rFHOkFJJs=
 github.com/favadi/protoc-go-inject-tag v1.0.0/go.mod h1:aqpNBvyaHwaqHh/jR+j3mBjD/Y73PvAUna+5G8tRLA8=
@@ -58,6 +60,8 @@ github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51/go.mod h1:C
 github.com/kennygrant/sanitize v1.2.4/go.mod h1:LGsjYYtgxbetdg5owWB2mpgUL6e2nfw2eObZ0u0qvak=
 github.com/klauspost/compress v1.8.2 h1:Bx0qjetmNjdFXASH02NSAREKpiaDwkO1DRZ3dV2KCcs=
 github.com/klauspost/compress v1.8.2/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
+github.com/klauspost/compress v1.10.4 h1:jFzIFaf586tquEB5EhzQG0HwGNSlgAJpG53G6Ss11wc=
+github.com/klauspost/compress v1.10.4/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYsUV+/s2qKfXs=
 github.com/klauspost/cpuid v1.2.1 h1:vJi+O/nMdFt0vqm8NZBI6wzALWdA2X+egi0ogNyrC/w=
 github.com/klauspost/cpuid v1.2.1/go.mod h1:Pj4uuM528wm8OyEC2QMXAi2YiTZ96dNQPGgoMS4s3ek=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
@@ -92,13 +96,19 @@ github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/savsgio/atreugo v5.4.0+incompatible h1:CYGL9tYYCA0VCI+8S0iXKQG/hba+rpEMBRkMD7yQOAM=
-github.com/savsgio/atreugo/v10 v10.4.2 h1:T9okjXLk5R48BODjfJs9YqkRgQoWqrhZqNUMIslWs1s=
-github.com/savsgio/atreugo/v10 v10.4.2/go.mod h1:LWOafWytEjuY0hIVQ9Yycva93RBgGHPQBfaSjw1z6dk=
+github.com/savsgio/atreugo/v11 v10.4.2 h1:T9okjXLk5R48BODjfJs9YqkRgQoWqrhZqNUMIslWs1s=
+github.com/savsgio/atreugo/v11 v10.4.2/go.mod h1:LWOafWytEjuY0hIVQ9Yycva93RBgGHPQBfaSjw1z6dk=
+github.com/savsgio/atreugo/v11 v11.0.4 h1:DnPZbhITUj0tCuac82fm83aBt2Om7v3lva/7CW6ylog=
+github.com/savsgio/atreugo/v11 v11.0.4/go.mod h1:Z7JQnYDU4k3PBpdnEPmmex7H19FVxNmAw3EFcrQOAlU=
 github.com/savsgio/go-logger v1.0.0 h1:jiaRvohRr8RwtcK/WDcA/Yp4eaPaarAko3JNPzt1xoQ=
 github.com/savsgio/go-logger v1.0.0/go.mod h1:/ZzTTmB3JJqjZQcLlxTGbwy3fIsLUoYyldsSEL5rU2g=
+github.com/savsgio/go-logger/v2 v2.0.0 h1:9CzMIHfAzHoMJoY+0ODI9DJGfBxRIVqI7jZkg47MRrQ=
+github.com/savsgio/go-logger/v2 v2.0.0/go.mod h1:fog+sZsg75Or4EENyd1jrS/Ps44s39hd6lccqALz0C8=
 github.com/savsgio/gotils v0.0.0-20200117113501-90175b0fbe3f/go.mod h1:lHhJedqxCoHN+zMtwGNTXWmF0u9Jt363FYRhV6g0CdY=
 github.com/savsgio/gotils v0.0.0-20200308224205-e330c862e34f h1:0E9mVEuHlin0NKhic4cxMiYl7mpk1kDW+lavlU3lbjQ=
 github.com/savsgio/gotils v0.0.0-20200308224205-e330c862e34f/go.mod h1:lHhJedqxCoHN+zMtwGNTXWmF0u9Jt363FYRhV6g0CdY=
+github.com/savsgio/gotils v0.0.0-20200413113635-8c468ce75cca h1:Qe7Mtuhjkk38HVpRtvWdziZJcwG3Qup1mfyvyOrcnyM=
+github.com/savsgio/gotils v0.0.0-20200413113635-8c468ce75cca/go.mod h1:TWNAOTaVzGOXq8RbEvHnhzA/A2sLZzgn0m6URjnukY8=
 github.com/sirupsen/logrus v1.4.1 h1:GL2rEmy6nsikmW0r8opw9JIRScdMF5hA8cOYLH7In1k=
 github.com/sirupsen/logrus v1.4.1/go.mod h1:ni0Sbl8bgC9z8RoU9G6nDWqqs/fq4eDPysMBDgk/93Q=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
@@ -113,6 +123,8 @@ github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyC
 github.com/valyala/fasthttp v1.9.0/go.mod h1:FstJa9V+Pj9vQ7OJie2qMHdwemEDaDiSdBnvPM1Su9w=
 github.com/valyala/fasthttp v1.11.0 h1:CpWaRjWmZMkgcngl8P7ygGoHmfXSZDcKx3Vdv8Bdkuw=
 github.com/valyala/fasthttp v1.11.0/go.mod h1:FstJa9V+Pj9vQ7OJie2qMHdwemEDaDiSdBnvPM1Su9w=
+github.com/valyala/fasthttp v1.12.0 h1:TsB9qkSeiMXB40ELWWSRMjlsE+8IkqXHcs01y2d9aw0=
+github.com/valyala/fasthttp v1.12.0/go.mod h1:229t1eWu9UXTPmoUkbpN/fctKPBY4IJoFXQnxHGXy6E=
 github.com/valyala/tcplisten v0.0.0-20161114210144-ceec8f93295a h1:0R4NLDRDZX6JcmhJgXi5E4b8Wg84ihbmUKp/GvSPEzc=
 github.com/valyala/tcplisten v0.0.0-20161114210144-ceec8f93295a/go.mod h1:v3UYOV9WzVtRmSR+PDvWpU/qWl4Wa5LApYYX4ZtKbio=
 github.com/wailsapp/wails v1.0.2 h1:ztqaLpDb8m8SqAi0u+Ss49zBFrmtm/cAa6ztvKYEjaw=
@@ -129,6 +141,7 @@ golang.org/x/net v0.0.0-20180801234040-f4c29de78a2a/go.mod h1:mL1N/T3taQHkDXs73r
 golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
 golang.org/x/net v0.0.0-20190509222800-a4d6f7feada5/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
 golang.org/x/net v0.0.0-20190827160401-ba9fcec4b297/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e/go.mod h1:qpuaurCH72eLCgpAm/N6yyVIVM9cpaDIP3A8BGJEC5A=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sys v0.0.0-20180606202747-9527bec2660b/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20180905080454-ebe1bf3edb33/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
@@ -137,6 +150,7 @@ golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5h
 golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190509141414-a5b02f93d862/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 google.golang.org/appengine v1.4.0 h1:/wp5JvzpHIxhs/dumFmF7BXTf3Z+dd4uXta4kVyO508=

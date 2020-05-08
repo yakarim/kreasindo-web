@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/atreugo/v11"
 	"github.com/valyala/fasthttp"
 	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/database"

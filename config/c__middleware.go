@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/savsgio/atreugo/v10"
+	"github.com/savsgio/atreugo/v11"
 	"github.com/valyala/fasthttp"
 )
 
