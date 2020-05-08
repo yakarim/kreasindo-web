@@ -19,7 +19,6 @@ func routers(ctx *atreugo.Atreugo) {
 	ctx.GET("/gallery", c.Gallery.View)
 	ctx.GET("/person-json", c.Gallery.JSON)
 
-	ctx.GET("/person-create", c.Gallery.Create)
 	ctx.GET("/login", c.Login)
 	ctx.POST("/login__jwt", c.LoginJwt)
 	ctx.GET("/images", Image)
@@ -57,7 +56,6 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxGallery.UseBefore(c.AuthMiddleware)
 	ctxGallery.GET("", c.Gallery.View)
 	ctxGallery.GET("/json", c.Gallery.JSON)
-	ctxGallery.POST("", c.Gallery.Create)
 }
 
 // Image ...

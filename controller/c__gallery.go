@@ -1,16 +1,11 @@
 package controller
 
 import (
-	"fmt"
 	"log"
 
-	"github.com/golang/protobuf/jsonpb"
-	"github.com/google/uuid"
 	"github.com/savsgio/atreugo/v10"
 	"github.com/yakarim/kreasindo-web/config"
 	"github.com/yakarim/kreasindo-web/model"
-	"github.com/yakarim/kreasindo-web/protobuf"
-	"google.golang.org/protobuf/proto"
 )
 
 // Gallery ...
@@ -53,28 +48,8 @@ func (c *Gallery) JSON(ctx *atreugo.RequestCtx) error {
 		log.Fatal("JSON gallery error", err)
 	}
 
-	b, _ := proto.Marshal(data)
-	fmt.Println(b)
-
-	m := jsonpb.Marshaler{}
-
-	return m.Marshal(ctx, data)
+	return ctx.JSONResponse(config.H{"contacts": data}, 200)
 
 }
 
 // Create person.
-func (c *Gallery) Create(ctx *atreugo.RequestCtx) error {
-	uid, err := uuid.NewUUID()
-	if err != nil {
-		log.Fatal("uid error", err)
-	}
-	pr := &protobuf.Gallery{
-		Uid:  uid.String(),
-		Name: "walid",
-		Desc: "string",
-	}
-
-	db.Save(&pr)
-
-	return nil
-}

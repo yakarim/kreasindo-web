@@ -7,7 +7,6 @@ import (
 	"sync"
 
 	"github.com/jinzhu/gorm"
-	"github.com/yakarim/kreasindo-web/protobuf"
 
 	// database ...
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -34,7 +33,7 @@ func init() {
 	} else {
 		db = pqsl(host, user, pass, database, sslmode, port)
 	}
-	db.AutoMigrate(&User{}, &Contact{}, &Images{}, &Abouth{}, &Specialist{}, &protobuf.Gallery{}, &protobuf.Galleries{})
+	db.AutoMigrate(&User{}, &Contact{}, &Images{}, &Abouth{}, &Specialist{}, &Gallery{})
 	DB = db
 
 }

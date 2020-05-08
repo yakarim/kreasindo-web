@@ -7,6 +7,7 @@ import (
 	"github.com/yakarim/kreasindo-web/database"
 )
 
+// Specialist ...
 type Specialist struct {
 	config.Config
 	database.Specialist
