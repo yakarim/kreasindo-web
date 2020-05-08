@@ -6,6 +6,7 @@ import (
 
 	"github.com/savsgio/atreugo/v11"
 	"github.com/savsgio/go-logger"
+	fastprefork "github.com/valyala/fasthttp/prefork"
 )
 
 func main() {
@@ -13,13 +14,15 @@ func main() {
 	port := os.Getenv("PORT")
 	var config atreugo.Config
 	if port == "8080" {
+		port = "8080"
 		config = atreugo.Config{
-			Addr:     "0.0.0.0:8080",
-			Name:     "Kreasindo Pratama",
-			LogLevel: logger.DEBUG,
+			Addr:              "0.0.0.0:8080",
+			Name:              "Kreasindo Pratama",
+			ReduceMemoryUsage: true,
+			Compress:          true,
+			LogLevel:          logger.DEBUG,
 		}
 	} else {
-		runtime.GOMAXPROCS(runtime.NumCPU())
 		config = atreugo.Config{
 			Addr:              "0.0.0.0:" + port,
 			Name:              "Kreasindo Pratama",
@@ -34,7 +37,13 @@ func main() {
 	routers(ctx)
 	static(ctx)
 
-	if err := ctx.ListenAndServe(); err != nil {
+	preforkServer := &fastprefork.Prefork{
+		RecoverThreshold: runtime.GOMAXPROCS(0) / 2,
+		ServeFunc:        ctx.Serve,
+	}
+
+	if err := preforkServer.ListenAndServe(":" + port); err != nil {
 		panic(err)
 	}
+
 }

@@ -26,6 +26,7 @@ func init() {
 		pass     = "1ff0cd6a150c7486649d7c8ef2f7f12a5671567c8631374e8c742b75aabbcecc"
 		sslmode  = "require"
 	)
+	
 	var db *gorm.DB
 	p := os.Getenv("PORT")
 	if p == "8080" {

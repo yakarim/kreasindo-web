@@ -30,7 +30,7 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxUser.GET("/json", c.User.JSON)
 	ctxUser.POST("", c.User.Create)
 	ctxUser.PUT("", c.User.Update)
-	ctxUser.DELETE("/del:key", c.User.Delete)
+	ctxUser.DELETE("/del{key}", c.User.Delete)
 
 	ctxContact := ctx.NewGroupPath("/contact-admin")
 	ctxContact.UseBefore(c.AuthMiddleware)
@@ -50,7 +50,7 @@ func routers(ctx *atreugo.Atreugo) {
 	ctxSpecialist.GET("/json", c.User.JSON)
 	ctxSpecialist.POST("", c.User.Create)
 	ctxSpecialist.PUT("", c.User.Update)
-	ctxSpecialist.DELETE("/del:key", c.User.Delete)
+	ctxSpecialist.DELETE("/del{key}", c.User.Delete)
 
 	ctxGallery := ctx.NewGroupPath("/gallery-admin")
 	ctxGallery.UseBefore(c.AuthMiddleware)
