@@ -16,7 +16,7 @@ func main() {
 	if port == "8080" {
 		port = "8080"
 		config = atreugo.Config{
-			Addr:              "0.0.0.0:8080",
+			Addr:              ":" + port,
 			Name:              "Kreasindo Pratama",
 			ReduceMemoryUsage: true,
 			Compress:          true,
@@ -37,6 +37,11 @@ func main() {
 	routers(ctx)
 	static(ctx)
 
+	if port == "8080" {
+		if err := ctx.ListenAndServe(); err != nil {
+			panic(err)
+		}
+	}
 	preforkServer := &fastprefork.Prefork{
 		RecoverThreshold: runtime.GOMAXPROCS(0) / 2,
 		ServeFunc:        ctx.Serve,
