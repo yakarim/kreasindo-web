@@ -8,13 +8,17 @@ import (
 
 func static(ctx *atreugo.Atreugo) {
 
-	ctx.Static("/css", "./static/css")
-	ctx.Static("/js", "./static/js")
+	costumStatic(ctx, "css")
+	costumStatic(ctx, "js")
+	costumStatic(ctx, "images")
+
+}
+
+func costumStatic(ctx *atreugo.Atreugo, name string) {
 	rootFS := &atreugo.StaticFS{
-		Root:            "./static/images",
+		Root:            "./static" + name,
 		AcceptByteRange: true,
 		CacheDuration:   15 * time.Minute,
 	}
-	ctx.StaticCustom("/images", rootFS)
-
+	ctx.StaticCustom("/"+name, rootFS)
 }
