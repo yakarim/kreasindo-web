@@ -28,7 +28,7 @@ func (c *Config) template(ctx *atreugo.RequestCtx, code int, page string) (*jet.
 	if err != nil {
 		logger.Fatal(err)
 	}
-	go c.globalFunc(views)
+	c.globalFunc(views)
 	vars := make(jet.VarMap)
 
 	ctx.SetStatusCode(code)
