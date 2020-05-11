@@ -18,7 +18,7 @@ func costumStatic(ctx *atreugo.Atreugo, name string) {
 	rootFS := &atreugo.StaticFS{
 		Root:            "./static/" + name,
 		AcceptByteRange: true,
-		CacheDuration:   15 * time.Minute,
+		CacheDuration:   15 * time.Hour,
 		Compress:        true,
 	}
 	ctx.StaticCustom("/"+name, rootFS)
