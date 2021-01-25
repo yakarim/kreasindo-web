@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/CloudyKit/jet/v3"
+	"github.com/CloudyKit/jet/v6"
 	"github.com/yakarim/kreasindo-web/database"
 )
 
@@ -9,7 +9,11 @@ import (
 type Config struct {
 }
 
+var views = jet.NewSet(
+	jet.NewOSFileSystemLoader("./templates"),
+	jet.InDevelopmentMode(), // remove in production
+	jet.WithDelims("[%", "%]"),
+)
 var (
-	views = jet.NewHTMLSet("./templates")
-	db    = database.DB
+	db = database.DB
 )

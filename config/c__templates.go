@@ -1,29 +1,21 @@
 package config
 
 import (
-	"os"
 	"time"
 
-	"github.com/CloudyKit/jet/v3"
+	"github.com/CloudyKit/jet/v6"
 	"github.com/savsgio/atreugo/v11"
 	"github.com/savsgio/go-logger"
 )
 
 // HTML ...
 func (c *Config) HTML(ctx *atreugo.RequestCtx, code int, page string, data H) error {
-	p := os.Getenv("PORT")
-	if p == "8080" {
-		views.SetDevelopmentMode(true)
-		t, vars := c.template(ctx, code, page)
-		return t.Execute(ctx.RequestCtx, vars, data)
-	}
 
 	t, vars := c.template(ctx, code, page)
 	return t.Execute(ctx.RequestCtx, vars, data)
 }
 
 func (c *Config) template(ctx *atreugo.RequestCtx, code int, page string) (*jet.Template, jet.VarMap) {
-	views.Delims("[%", "%]")
 	t, err := views.GetTemplate(page + ".html")
 	if err != nil {
 		logger.Fatal(err)

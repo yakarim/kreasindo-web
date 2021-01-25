@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/savsgio/atreugo/v11"
-	"github.com/savsgio/go-logger"
 )
 
 func static(ctx *atreugo.Atreugo) {
@@ -33,7 +32,6 @@ func portj() (atreugo.Config, string) {
 			Name:              "Kreasindo Pratama",
 			ReduceMemoryUsage: true,
 			Compress:          true,
-			LogLevel:          logger.DEBUG,
 		}
 	} else {
 		config = atreugo.Config{
